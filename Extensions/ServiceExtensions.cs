@@ -1,4 +1,6 @@
-﻿using MeetupWebAPI.Entities;
+﻿using MeetupWebAPI.Contracts;
+using MeetupWebAPI.Entities;
+using MeetupWebAPI.Repository;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -29,6 +31,10 @@ namespace MeetupWebAPI.Extensions
             var connectionString = config["NpgsqlConnection:ConnectionString"];
             services.AddDbContext<RepositoryContext>(o => o.UseNpgsql(connectionString,
                 assembly => assembly.MigrationsAssembly("MeetupAPI")));
+        }
+        public static void ConfigureRepositoryWrapper(this IServiceCollection services)
+        {
+            services.AddScoped<IUnitOfWork, UnitOfWork>();
         }
     }
 }

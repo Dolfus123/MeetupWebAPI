@@ -31,6 +31,7 @@ namespace MeetupWebAPI
             services.ConfigureCors();
             services.ConfigureIISIntegration();
             services.ConfigureNpgsqlContext(Configuration);
+            services.ConfigureRepositoryWrapper();
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {
