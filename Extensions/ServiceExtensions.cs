@@ -1,9 +1,8 @@
-﻿using Microsoft.AspNetCore.Builder;
+﻿using MeetupWebAPI.Entities;
+using Microsoft.AspNetCore.Builder;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace MeetupWebAPI.Extensions
 {
@@ -24,6 +23,12 @@ namespace MeetupWebAPI.Extensions
                     .AllowAnyMethod()
                     .AllowAnyHeader());
             });
+        }
+        public static void ConfigureNpgsqlContext(this IServiceCollection services, IConfiguration config)
+        {
+            var connectionString = config["NpgsqlConnection:ConnectionString"];
+            services.AddDbContext<RepositoryContext>(o => o.UseNpgsql(connectionString,
+                assembly => assembly.MigrationsAssembly("MeetupAPI")));
         }
     }
 }
