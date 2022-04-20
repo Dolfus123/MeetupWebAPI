@@ -5,10 +5,11 @@ using System.Threading.Tasks;
 
 namespace MeetupWebAPI.Contracts
 {
-    interface IUnitOfWork
+    public interface IUnitOfWork
     {
         IMeetupRepository Meetup { get; }
+        ITagRepository Tag { get; }
         IUserRepository User { get; }
-        void Save();//Task<bool> CompleteAsync();
+        Task<bool> CompleteAsync();
     }
 }

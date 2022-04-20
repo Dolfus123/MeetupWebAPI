@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MeetupWebAPI.Contracts
 {
-    interface IUserRepository : IRepositoryBase<User>
+    public interface IUserRepository : IRepositoryBase<User>
     {
     }
 }

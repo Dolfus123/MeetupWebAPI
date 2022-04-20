@@ -5,6 +5,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace MeetupWebAPI.Entities.Models
 {
+    [Table("Tag")]
     public class Tag
     {
         [Column("TagId")]
