@@ -10,6 +10,6 @@ namespace MeetupWebAPI.Contracts
         IMeetupRepository Meetup { get; }
         ITagRepository Tag { get; }
         IUserRepository User { get; }
-        Task<bool> CompleteAsync();
+        Task SaveAsync();
     }
 }

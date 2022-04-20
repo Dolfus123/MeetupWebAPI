@@ -1,5 +1,4 @@
 ﻿using Entities.Models;
-using MeetupWebAPI.Entities.Models;
 using Microsoft.EntityFrameworkCore;
 
 namespace MeetupWebAPI.Entities

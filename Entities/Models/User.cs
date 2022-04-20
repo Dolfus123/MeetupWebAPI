@@ -12,6 +12,7 @@ namespace Entities.Models
         [Required(ErrorMessage = "Date created is required")]
         public DateTime DateCreated { get; set; }
         [ForeignKey(nameof(Meetup))]
+        public Guid MeetupId { get; set; }
         public Meetup Meetup { get; set; }
     }
 }

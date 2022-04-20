@@ -1,9 +1,8 @@
-﻿using Entities.Models;
-using System;
+﻿using System;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace MeetupWebAPI.Entities.Models
+namespace Entities.Models
 {
     [Table("Tag")]
     public class Tag

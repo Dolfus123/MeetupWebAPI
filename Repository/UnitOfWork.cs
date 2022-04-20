@@ -15,6 +15,6 @@ namespace MeetupWebAPI.Repository
         {
             _repoContext = repositoryContext;
         }
-        public async Task<bool> CompleteAsync() => await _repoContext.SaveChangesAsync() > 0;
+        public async Task SaveAsync() => await _repoContext.SaveChangesAsync();
     }
 }

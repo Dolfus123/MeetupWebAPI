@@ -4,7 +4,6 @@ using MeetupWebAPI.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 
 namespace MeetupWebAPI.Repository
 {
@@ -13,6 +12,10 @@ namespace MeetupWebAPI.Repository
         public UserRepository(RepositoryContext repositoryContext)
             : base(repositoryContext)
         {
+        }
+        public IEnumerable<User> UsersByMeetup(Guid meetupId)
+        {
+            return FindByConditionAsync(a => a.MeetupId.Equals(meetupId)).ToList();
         }
     }
 }

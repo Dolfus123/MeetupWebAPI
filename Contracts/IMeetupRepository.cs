@@ -11,7 +11,7 @@ namespace MeetupWebAPI.Contracts
         Task<Meetup> GetMeetupByIdAsync(Guid meetupId);
         Task<Meetup> GetMeetupWithDetailsAsync(Guid meetupId);
         void CreateMeetup(Meetup meetup);
-        void UpdateMeetup(Meetup meetup);
         void DeleteMeetup(Meetup meetup);
+        void UpdateMeetup(Meetup meetupEntity);
     }
 }

@@ -1,4 +1,4 @@
-﻿using MeetupWebAPI.Entities.Models;
+﻿using Entities.Models;
 
 namespace MeetupWebAPI.Contracts
 {

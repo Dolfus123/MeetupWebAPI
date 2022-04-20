@@ -18,7 +18,7 @@ namespace MeetupWebAPI.Repository
         public async Task<IEnumerable<Meetup>> GetAllMeetupsAsync()
         {
             return await FindAllAsync()
-                    .OrderBy(mup => mup.Title)
+                    .OrderBy(meetup => meetup.Title)
                     .ToListAsync();
         }
         public async Task<Meetup> GetMeetupByIdAsync(Guid meetupId)
@@ -29,7 +29,7 @@ namespace MeetupWebAPI.Repository
         public async Task<Meetup> GetMeetupWithDetailsAsync(Guid meetupId)
         {
             return await FindByConditionAsync(meetup => meetup.Id.Equals(meetupId))
-                .Include(ac => ac.Users)
+                .Include(user => user.Users)
                 .FirstOrDefaultAsync();
         }
         public void CreateMeetup(Meetup meetup) => Create(meetup);
