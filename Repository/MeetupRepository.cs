@@ -33,9 +33,7 @@ namespace MeetupWebAPI.Repository
                 .FirstOrDefaultAsync();
         }
         public void CreateMeetup(Meetup meetup) => Create(meetup);
-
         public void UpdateMeetup(Meetup meetup) => Update(meetup);
-
         public void DeleteMeetup(Meetup meetup) => Delete(meetup);
     }
 }

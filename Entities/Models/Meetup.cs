@@ -21,6 +21,5 @@ namespace Entities.Models
         [StringLength(50, ErrorMessage = "Tag cannot be longer than 50 characters")]
         public ICollection<Tag> Tags { get; set; }
         public ICollection<User> Users { get; set; }
-
     }
 }

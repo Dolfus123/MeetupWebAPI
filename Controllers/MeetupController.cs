@@ -2,8 +2,8 @@
 using Entities.Models;
 using MeetupWebAPI.Contracts;
 using MeetupWebAPI.Entities.DataTransferObjects;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,10 +15,10 @@ namespace MeetupWebAPI.Controllers
     [ApiController]
     public class MeetupController : ControllerBase
     {
-        private ILoggerManager _logger;
+        private readonly ILogger _logger;
         private IUnitOfWork _unitOfWork;
         private IMapper _mapper;
-        public MeetupController(ILoggerManager logger, IUnitOfWork unitOfWork, IMapper mapper)
+        public MeetupController(ILogger logger, IUnitOfWork unitOfWork, IMapper mapper)
         {
             _logger = logger;
             _unitOfWork = unitOfWork;
@@ -36,7 +36,7 @@ namespace MeetupWebAPI.Controllers
             try
             {
                 var meetups = await _unitOfWork.Meetup.GetAllMeetupsAsync();
-                _logger.LogInfo($"Returned all meetups from database.");
+                _logger.LogInformation($"Returned all meetups from database.");
 
                 var meetupResult = _mapper.Map<IEnumerable<MeetupDto>>(meetups);
 
@@ -70,7 +70,7 @@ namespace MeetupWebAPI.Controllers
                 }
                 else
                 {
-                    _logger.LogInfo($"Returned meetup with id: {id}");
+                    _logger.LogInformation($"Returned meetup with id: {id}");
 
                     var meetupResult = _mapper.Map<MeetupDto>(meetup);
                     return Ok(meetupResult);
@@ -103,7 +103,7 @@ namespace MeetupWebAPI.Controllers
                 }
                 else
                 {
-                    _logger.LogInfo($"Returned meetup with details for id: {id}");
+                    _logger.LogInformation($"Returned meetup with details for id: {id}");
 
                     var meetupResult = _mapper.Map<MeetupDto>(meetup);
                     return Ok(meetupResult);
