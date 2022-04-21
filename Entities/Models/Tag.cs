@@ -11,6 +11,7 @@ namespace Entities.Models
         public Guid Id { get; set; }
         [StringLength(50, ErrorMessage = "Name can't be longer than 50 characters")]
         public string Name { get; set; }
+        public int MeetupId { get; set; }
         public Meetup Meetup { get; set; }
     }
 }
